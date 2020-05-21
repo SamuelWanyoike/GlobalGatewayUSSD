@@ -2,26 +2,8 @@
 
 'use strict';
 
-// var service = require("./env.json");
-
-// var firebaseConfig = {
-   
-//     databaseURL: "https://celoussd.firebaseio.com",
-//     apiKey: "AIzaSyDFHXhUZYqZtF0h9CSdbC7IsC1Rwq9uhLg",
-//     authDomain: "celoussd.firebaseapp.com",
-//     projectId: "celoussd",
-//     storageBucket: "celoussd.appspot.com",
-//     messagingSenderId: "135354782212",
-//     appId: "1:135354782212:web:03e199e77496ecc437db51",
-//     measurementId: "G-5LE0RZR6EH"
-
-// }
-
-
-
 const functions = require('firebase-functions');
 const admin = require('firebase-admin');
-// admin.initializeApp();
 const serviceAccount = require('./serviceAccountKey.json')
 
 admin.initializeApp({
@@ -344,20 +326,6 @@ async function addUserDataToDB(userId){
     });   
   }
 
-// function twilioSMSSender(to, message) {
-//     var accountSid = process.env.TWILI_API_accountSid; // Your Account SID from www.twilio.com/console
-//     var authToken = process.env.TWILI_API_authToken;   // Your Auth Token from www.twilio.com/console
-//     var twilioPhoneNumber = process.env.TWILI_API_phoneNumber;
-
-//     var client = new twilio(accountSid, authToken);
-
-//     client.messages.create({
-//         body: message,
-//         to: to,  // Text this number
-//         from: twilioPhoneNumber // From a valid Twilio number
-//     })
-//     .then((message) => console.log(message.sid));
-// }
 
 //SEND GET shortURL
 async function getTxidUrl(txid){
@@ -371,7 +339,7 @@ function getSentTxidUrl(txid){
     });
 }
 
-//GET ACCOUNT ADDRESS shortURL
+//GET ACCOUNT ADDRESS 
 async function getAddressUrl(userAddress){
     return await getUserAddressUrl(userAddress);
 }
@@ -499,7 +467,7 @@ async function sendcUSD(sender, receiver, amount, privatekey){
 
 //working
 async function getBlock() {
-    // return web3.eth.getBlock('latest');
+    
     return kit.web3.currentProvider.eth.getBlock('latest');
 }
 
