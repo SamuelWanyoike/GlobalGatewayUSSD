@@ -1,11 +1,3 @@
-// const functions = require('firebase-functions');
-
-// // Create and Deploy Your First Cloud Functions
-// // https://firebase.google.com/docs/functions/write-firebase-functions
-//
-// exports.helloWorld = functions.https.onRequest((request, response) => {
-//  response.send("Hello from Firebase!");
-// });
 
 
 'use strict';
@@ -32,28 +24,13 @@ const admin = require('firebase-admin');
 // admin.initializeApp();
 const serviceAccount = require('./serviceAccountKey.json')
 
-// admin.initializeApp({
-//      credential: admin.credential.cert(serviceAccount),
-//      databaseURL: "https://celoussd.firebaseio.com",
+admin.initializeApp({
+     credential: admin.credential.cert(serviceAccount),
+     databaseURL: "https://celoussd.firebaseio.com",
 
-// });
-
-const adminConfig = JSON.parse(process.env.FIREBASE_CONFIG);
-adminConfig.credential = admin.credential.cert(serviceAccount);
-admin.initializeApp(adminConfig);
+});
 
 
-// function getAppEmulator() {
-//     const serviceAccount = require("./serviceAccountKey.json");
-//     process.env.FIRESTORE_EMULATOR_HOST = "localhost:8080";
-//     process.env.FIREBASE_FIRESTORE_EMULATOR_ADDRESS = "localhost:8080";
-//     admin
-//       .initializeApp({
-//         credential: admin.credential.cert(serviceAccount),
-//       });
-//     return admin.app();
-//   };
-//   getAppEmulator();
 const firestore = admin.firestore();
 require('dotenv').config();
 
