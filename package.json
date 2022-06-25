@@ -29,7 +29,7 @@
     "firebase-functions": "^3.6.1",
     "firebase-tools": "^7.2.3",
     "node": "^8.17.0",
-    "node-fetch": "^2.6.0",
+    "node-fetch": "^2.6.7",
     "nodemon": "^1.18.10",
     "prettyjson": "^1.2.1",
     "randomstring": "^1.1.5",
